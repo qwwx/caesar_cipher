@@ -1,0 +1,65 @@
+﻿<Window x:Class="CaesarCipherWinFormsApplication.wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <StackPanel>
+                <!-- <TextBlock Text="Выберите язык" Margin="5" Height="15px"/> -->
+                <!-- <ListBox SelectedIndex="0" SelectionMode="Single" Name="Language" > -->
+                <!--     <ListBoxItem>Русский</ListBoxItem> -->
+                <!--     <ListBoxItem>Английский</ListBoxItem> -->
+                <!-- </ListBox> -->
+                <!-- <Separator Height="15px"/> -->
+                <TextBlock Text="Выберите действие" Margin="5" Height="15px"/>
+                <ListBox SelectedIndex="0" SelectionMode="Single" Name="Change" >
+                    <ListBoxItem>Зашифровать</ListBoxItem>
+                    <ListBoxItem>Расшифровать</ListBoxItem>
+                </ListBox>
+                <!-- <TextBox x:Name="textBoxResult" /> -->
+                <Separator Height="15px"/>
+                <TextBlock Text="Введите ключ" Margin="5" Height="15px"  />
+                <TextBox
+                    Margin="5"
+                    Name="Key"
+                    PreviewTextInput="Message_OnPreviewTextInput"
+                    DataObject.Pasting="Key_OnPasting"
+                />
+                <Separator/>
+            </StackPanel>
+            <Rectangle VerticalAlignment="Stretch" Fill="Black" Width="0.5"/>
+            <StackPanel>
+                <TextBlock Text="Введите текст" Margin="5" Height="15px"/>
+                <TextBox
+                    Margin="5"
+                    Height="65px"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Visible"
+                    Name="Message"
+                    AcceptsReturn="True"
+                />
+                <Button
+                    Margin="5"
+                    Height="20px"
+                    Width="200px"
+                    Click="Button_Click"
+                >
+                    Выполнить действие
+                </Button>
+                <TextBlock Text="Результат" Margin="5" Height="15px"/>
+                <TextBox Name="Result" Margin="5" Height="165px" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"/>
+                <Button
+                    Margin="5"
+                    Height="20px"
+                    Width="200px"
+                    Click="Clear_Click"
+                >
+                    Очистить
+                </Button>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
